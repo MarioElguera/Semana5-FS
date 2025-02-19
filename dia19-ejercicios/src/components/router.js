@@ -5,6 +5,7 @@ import NavBar from "./ej1";
 import UserProfile from "./ej2";
 import PostJson from "./ej4";
 import ErrorComp from "./ej5";
+import { useEffect } from "react";
 
 function Layout() {
     return (
@@ -16,6 +17,15 @@ function Layout() {
         </div>
     )
 }
+
+useEffect(() => {
+    setIsClient(true);
+});
+
+if (!isClient) {
+    return null;
+};
+
 const router = createBrowserRouter([
     {
         path: "/",
