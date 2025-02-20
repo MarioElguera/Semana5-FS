@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+
 import About from "../components/About";
 import Home from "../components/Home";
 
