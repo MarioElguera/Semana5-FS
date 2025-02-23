@@ -11,7 +11,7 @@ export default function NavBar() {
                         onClick={() => navigate("/")}
                         className="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-md transition-all duration-300"
                     >
-                        Home
+                        Inicio
                     </button>
                 </li>
                 <li>
@@ -19,7 +19,7 @@ export default function NavBar() {
                         onClick={() => navigate("/new-task")}
                         className="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md transition-all duration-300"
                     >
-                        New Task
+                        Agregar Tarea
                     </button>
                 </li>
 

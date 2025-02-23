@@ -5,6 +5,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import NavBar from "@/components/navBar";
 import News from "@/components/home";
 import NewTask from "@/components/taskForm";
+import DetalleTask from "@/components/taskDetail";
+
 
 import { TaskProvider } from '../components/context';
 
@@ -39,7 +41,7 @@ export default function App() {
       children: [
         { path: "/", element: <News /> },
         { path: "/new-task", element: <NewTask /> },
-        // { path: "/task/:id", element: <TaskId /> },
+        { path: "/task/:id", element: <DetalleTask /> },
       ]
     }
   ]);
