@@ -5,30 +5,27 @@ const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
 
-    const taskList = [
+    const [taskList, setTaskList] = useState([
         { id: 1, title: "Tarea 1", description: "Descripción de la Tarea 1", completed: false },
         { id: 2, title: "Tarea 2", description: "Descripción de la Tarea 2", completed: false },
         { id: 3, title: "Tarea 3", description: "Descripción de la Tarea 3", completed: false },
-    ];
+    ]);
 
     function addTask(task) {
-        taskList.push(task);
+        setTaskList((prevTasks) => [...prevTasks, task]);
     }
 
     function deleteTask(idTask) {
-        const taskToDelete = taskList.findIndex(x => x.id === idTask);
-
-        if (taskToDelete !== -1) {
-            taskList.splice(taskToDelete, 1);
-        } else {
-            console.log('Tarea no encontrada');
-        }
+        setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== idTask));
     }
 
 
     function completedTask(idTask) {
-        const task = taskList.findIndex(x => x.id === idTask);
-        task.completed = true;
+        setTaskList((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === idTask ? { ...task, completed: !task.completed } : task
+            )
+        );
     }
 
     return (
